@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CarDriver : MonoBehaviour
 {
-    [Header("Car Settings")]
     public float maxSpeed = 20f;
     public float acceleration = 10f;
     public float turnSpeed = 80f;
@@ -16,6 +15,8 @@ public class CarDriver : MonoBehaviour
 
     private Rigidbody rb;
 
+    public bool keyboardControl = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,37 +24,30 @@ public class CarDriver : MonoBehaviour
 
     private void Update()
     {
-        // Keyboard control (for testing)
-        float forward = Input.GetAxis("Vertical");
-        float turn    = Input.GetAxis("Horizontal");
-        SetInputs(forward, turn);
-    }
+        if (!keyboardControl) return;
 
-    private void FixedUpdate()
-    {
-        Move();
+        SetInputs(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
     }
 
     public void SetInputs(float forward, float turn)
     {
-        forwardInput = Mathf.Clamp(forward, -1f, 1f);
-        turnInput    = Mathf.Clamp(turn, -1f, 1f);
+        forward = Mathf.Max(0f, forward);
+
+        forwardInput = Mathf.Clamp(forward, 0f, 1f);
+        turnInput = Mathf.Clamp(turn, -1f, 1f);
     }
 
-    private void Move()
+    private void FixedUpdate()
     {
-        // Smooth acceleration
         currentSpeed = Mathf.MoveTowards(
             currentSpeed,
             forwardInput * maxSpeed,
             acceleration * Time.fixedDeltaTime
         );
 
-        // Apply velocity
         Vector3 forwardVel = transform.forward * currentSpeed;
         rb.velocity = new Vector3(forwardVel.x, rb.velocity.y, forwardVel.z);
 
-        // Smooth turning
         currentTurnSpeed = Mathf.MoveTowards(
             currentTurnSpeed,
             turnInput * turnSpeed,
@@ -65,9 +59,9 @@ public class CarDriver : MonoBehaviour
 
     public void StopCompletely()
     {
-        rb.velocity        = Vector3.zero;
+        rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        currentSpeed       = 0;
-        currentTurnSpeed   = 0;
+        currentSpeed = 0;
+        currentTurnSpeed = 0;
     }
 }
