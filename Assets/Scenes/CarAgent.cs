@@ -99,8 +99,9 @@ public class CarAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Wall") || other.CompareTag("Obstacle"))
         {
+            Debug.Log("hit something");
             AddReward(-1f);
             EndEpisode();
         }

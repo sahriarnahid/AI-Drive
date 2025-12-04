@@ -2,40 +2,31 @@
     "CarAgent": {
         "checkpoints": [
             {
-                "steps": 499970,
-                "file_path": "results/run1/CarAgent/CarAgent-499970.onnx",
-                "reward": 12.511572856858434,
-                "creation_time": 1764811241.4954116,
+                "steps": 499995,
+                "file_path": "results/run1/CarAgent/CarAgent-499995.onnx",
+                "reward": 39.216418894854456,
+                "creation_time": 1764822297.169617,
                 "auxillary_file_paths": [
-                    "results/run1/CarAgent/CarAgent-499970.pt"
+                    "results/run1/CarAgent/CarAgent-499995.pt"
                 ]
             },
             {
-                "steps": 999981,
-                "file_path": "results/run1/CarAgent/CarAgent-999981.onnx",
-                "reward": 10.746884003896618,
-                "creation_time": 1764811526.4624348,
+                "steps": 500059,
+                "file_path": "results/run1/CarAgent/CarAgent-500059.onnx",
+                "reward": 39.216418894854456,
+                "creation_time": 1764822297.1918125,
                 "auxillary_file_paths": [
-                    "results/run1/CarAgent/CarAgent-999981.pt"
-                ]
-            },
-            {
-                "steps": 1304279,
-                "file_path": "results/run1/CarAgent/CarAgent-1304279.onnx",
-                "reward": 10.466820029426236,
-                "creation_time": 1764811724.4768856,
-                "auxillary_file_paths": [
-                    "results/run1/CarAgent/CarAgent-1304279.pt"
+                    "results/run1/CarAgent/CarAgent-500059.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 1304279,
+            "steps": 500059,
             "file_path": "results/run1/CarAgent.onnx",
-            "reward": 10.466820029426236,
-            "creation_time": 1764811724.4768856,
+            "reward": 39.216418894854456,
+            "creation_time": 1764822297.1918125,
             "auxillary_file_paths": [
-                "results/run1/CarAgent/CarAgent-1304279.pt"
+                "results/run1/CarAgent/CarAgent-500059.pt"
             ]
         }
     },
